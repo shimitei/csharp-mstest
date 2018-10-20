@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleLibrary", "SampleLibrary\SampleLibrary.csproj", "{E306059E-9905-4F7C-9826-A17F4385345A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleLibrary.Test", "SampleLibrary.Test\SampleLibrary.Test.csproj", "{A2150360-EE0D-43AE-A8DC-21B6470C1025}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDDBC8th", "SampleLibrary.Test\TDDBC8th.csproj", "{A2150360-EE0D-43AE-A8DC-21B6470C1025}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9EAD3A2-A573-4724-886A-6E128A3C9965}
 	EndGlobalSection
 EndGlobal
