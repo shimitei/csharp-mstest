@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="GaussianIntegerTest.cs" />
     <Compile Include="PurelyImaginaryNumberTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ImaginaryNumberTest.cs" />

@@ -150,7 +150,7 @@ namespace TDDBC8th.TestImaginaryNumber
         }
 
         [TestMethod]
-        public void 虚部マイナス1の純虚数の共役は虚部1の純虚数であること()
+        public void 虚部マイナス1の虚数の共役は虚部1の虚数であること()
         {
             Assert.AreEqual(new ImaginaryNumber(1, 1), new ImaginaryNumber(1, -1).GetConjugate());
         }

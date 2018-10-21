@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractImaginaryNumber.cs" />
+    <Compile Include="GaussianInteger.cs" />
     <Compile Include="ImaginaryNumber.cs" />
     <Compile Include="PurelyImaginaryNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
