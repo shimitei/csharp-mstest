@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TDDBC8th.Test
+namespace TDDBC8th.TestPurelyImaginaryNumber
 {
     [TestClass]
     public class 純虚数の生成
