@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TDDBC8th.Test;
 
 namespace SampleLibrary.Test
 {
@@ -15,15 +16,16 @@ namespace SampleLibrary.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void 実部0の虚数は生成できないこと()
+        public void 実部0と虚部2を与えて虚数を生成できること()
         {
-            new ImaginaryNumber(0, 2);
+            var inum = new ImaginaryNumber(0, 2);
+            Assert.AreEqual(0, inum.realPart);
+            Assert.AreEqual(2, inum.imaginaryPart);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void 虚部20の虚数は生成できないこと()
+        public void 虚部0の虚数は生成できないこと()
         {
             new ImaginaryNumber(2, 0);
         }
@@ -51,7 +53,7 @@ namespace SampleLibrary.Test
         }
 
         [TestMethod]
-        public void 実部2虚部1の虚数の文字列2プラスiであること()
+        public void 実部2虚部1の虚数の文字列は2プラスiであること()
         {
             Assert.AreEqual("2 + i", new ImaginaryNumber(2, 1).ToString());
         }
@@ -60,6 +62,30 @@ namespace SampleLibrary.Test
         public void 実部2虚部マイナス1の虚数の文字列は2ーiであること()
         {
             Assert.AreEqual("2 - i", new ImaginaryNumber(2, -1).ToString());
+        }
+
+        [TestMethod]
+        public void 実部0虚部2の虚数の文字列は2iであること()
+        {
+            Assert.AreEqual("2i", new ImaginaryNumber(0, 2).ToString());
+        }
+
+        [TestMethod]
+        public void 実部2虚部マイナス2の虚数の文字列はー2iであること()
+        {
+            Assert.AreEqual("-2i", new ImaginaryNumber(0, -2).ToString());
+        }
+
+        [TestMethod]
+        public void 実部0虚部1の虚数の文字列はiであること()
+        {
+            Assert.AreEqual("i", new ImaginaryNumber(0, 1).ToString());
+        }
+
+        [TestMethod]
+        public void 実部2虚部マイナス1の虚数の文字列はーiであること()
+        {
+            Assert.AreEqual("-i", new ImaginaryNumber(0, -1).ToString());
         }
     }
 
@@ -99,6 +125,18 @@ namespace SampleLibrary.Test
                 Assert.AreEqual(new ImaginaryNumber(2, 2).GetHashCode(),
                     new ImaginaryNumber(2, 2).GetHashCode());
             }
+        }
+
+        [TestMethod]
+        public void 実部0虚部2の虚数と虚部2の純虚数を比較すると同一であること()
+        {
+            Assert.AreEqual(new PurelyImaginaryNumber(2), new ImaginaryNumber(0, 2));
+        }
+
+        [TestMethod]
+        public void 虚部2の純虚数と実部0虚部2の虚数を比較すると同一であること()
+        {
+            Assert.AreEqual(new ImaginaryNumber(0, 2), new PurelyImaginaryNumber(2));
         }
     }
 

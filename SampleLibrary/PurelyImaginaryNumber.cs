@@ -1,8 +1,9 @@
-﻿using System;
+﻿using SampleLibrary;
+using System;
 
 namespace TDDBC8th.Test
 {
-    public class PurelyImaginaryNumber
+    public class PurelyImaginaryNumber : object, IImaginaryNumber
     {
         public readonly int imaginaryPart;
 
@@ -39,12 +40,22 @@ namespace TDDBC8th.Test
 
         public override bool Equals(object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType())
+            if (obj == null || !(obj is IImaginaryNumber))
             {
                 return false;
             }
-            PurelyImaginaryNumber c = (PurelyImaginaryNumber)obj;
-            return (this.imaginaryPart == c.imaginaryPart);
+            // FIXME ImaginaryNumberと同じような処理
+            if (obj is PurelyImaginaryNumber)
+            {
+                var pin = (PurelyImaginaryNumber)obj;
+                return (this.imaginaryPart == pin.imaginaryPart);
+            }
+            else if (obj is ImaginaryNumber)
+            {
+                var inum = (ImaginaryNumber)obj;
+                return (inum.realPart == 0) && (this.imaginaryPart == inum.imaginaryPart);
+            }
+            return false;
         }
 
         public override int GetHashCode()

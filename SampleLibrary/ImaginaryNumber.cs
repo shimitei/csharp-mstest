@@ -3,7 +3,7 @@ using TDDBC8th.Test;
 
 namespace SampleLibrary
 {
-    public class ImaginaryNumber
+    public class ImaginaryNumber : object, IImaginaryNumber
     {
         public readonly int realPart;
         private PurelyImaginaryNumber purelyImaginaryNumber;
@@ -11,10 +11,6 @@ namespace SampleLibrary
 
         public ImaginaryNumber(int realPart, int imaginaryPart)
         {
-            if (realPart == 0)
-            {
-                throw new ArgumentException("実部に0は指定できません");
-            }
             this.realPart = realPart;
             this.purelyImaginaryNumber = new PurelyImaginaryNumber(imaginaryPart);
         }
@@ -26,6 +22,10 @@ namespace SampleLibrary
 
         public override string ToString()
         {
+            if (this.realPart == 0)
+            {
+                return this.purelyImaginaryNumber.ToString();
+            }
             var imaginaryPartSign = (this.imaginaryPart < 0)? "-" : "+";
             var absImaginaryPartNumber = Math.Abs(this.imaginaryPart);
             var imaginaryPartStr = (absImaginaryPartNumber == 1) ? "" : absImaginaryPartNumber.ToString();
@@ -34,12 +34,25 @@ namespace SampleLibrary
 
         public override bool Equals(object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType())
+            if (obj == null || !(obj is IImaginaryNumber))
             {
                 return false;
             }
-            ImaginaryNumber c = (ImaginaryNumber)obj;
-            return (this.realPart == c.realPart) && (this.imaginaryPart == c.imaginaryPart);
+            // FIXME PurelyImaginaryNumberと同じような処理
+            if (obj is PurelyImaginaryNumber)
+            {
+                if (this.realPart != 0)
+                {
+                    return false;
+                }
+                return (this.purelyImaginaryNumber.Equals(obj));
+            }
+            else if (obj is ImaginaryNumber)
+            {
+                var inum = (ImaginaryNumber)obj;
+                return (this.realPart == inum.realPart) && (this.imaginaryPart == inum.imaginaryPart);
+            }
+            return false;
         }
 
         public override int GetHashCode()

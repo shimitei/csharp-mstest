@@ -1,11 +1,9 @@
 TDDBC for C# with MSTest
 =============
 
-これは、TDDBCのC#向けMSTestプロジェクトです。
-
 これは、TDDBC Sendai 8th   [https://tddbc.connpass.com/event/99555/](https://tddbc.connpass.com/event/99555/)  
-のお題のプロジェクトです。（C#ペアB）  
-[http://devtesting.jp/tddbc/?TDDBC%E4%BB%99%E5%8F%B008%2F%E8%AA%B2%E9%A1%8C_1](http://devtesting.jp/tddbc/?TDDBC%E4%BB%99%E5%8F%B008%2F%E8%AA%B2%E9%A1%8C_1)
+のお題のプロジェクトです。  
+[http://devtesting.jp/tddbc/?TDDBC%E4%BB%99%E5%8F%B008%2F%E8%AA%B2%E9%A1%8C](http://devtesting.jp/tddbc/?TDDBC%E4%BB%99%E5%8F%B008%2F%E8%AA%B2%E9%A1%8C)
 
 # ライセンス
 
