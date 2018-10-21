@@ -43,7 +43,7 @@ namespace TDDBC8th.Test
     }
 
     [TestClass]
-    public class 純虚数の文字列
+    public class 純虚数の文字列表記
     {
         [TestMethod]
         public void 虚部2の純虚数の文字列は2iであること()
@@ -115,30 +115,26 @@ namespace TDDBC8th.Test
         [TestMethod]
         public void 虚部1の純虚数の共役は虚部マイナス1の純虚数であること()
         {
-            var pin = new PurelyImaginaryNumber(1);
-            Assert.AreEqual(new PurelyImaginaryNumber(-1), pin.GetConjugate());
+            Assert.AreEqual(new PurelyImaginaryNumber(-1), new PurelyImaginaryNumber(1).GetConjugate());
         }
 
         [TestMethod]
         public void 虚部マイナス1の純虚数の共役は虚部1の純虚数であること()
         {
-            var pin = new PurelyImaginaryNumber(-1);
-            Assert.AreEqual(new PurelyImaginaryNumber(1), pin.GetConjugate());
+            Assert.AreEqual(new PurelyImaginaryNumber(1), new PurelyImaginaryNumber(-1).GetConjugate());
         }
 
 
         [TestMethod]
         public void 虚部2147483647の純虚数の共役は虚部マイナス2147483647の純虚数であること()
         {
-            var pin = new PurelyImaginaryNumber(2147483647);
-            Assert.AreEqual(new PurelyImaginaryNumber(-2147483647), pin.GetConjugate());
+            Assert.AreEqual(new PurelyImaginaryNumber(-2147483647), new PurelyImaginaryNumber(2147483647).GetConjugate());
         }
 
         [TestMethod]
         public void 虚部マイナス2147483647の純虚数の共役は虚部2147483647の純虚数であること()
         {
-            var pin = new PurelyImaginaryNumber(-2147483647);
-            Assert.AreEqual(new PurelyImaginaryNumber(2147483647), pin.GetConjugate());
+            Assert.AreEqual(new PurelyImaginaryNumber(2147483647), new PurelyImaginaryNumber(-2147483647).GetConjugate());
         }
     }
 }
