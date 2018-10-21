@@ -16,5 +16,20 @@ namespace TDDBC8th
         {
             return new GaussianInteger(this.realPart, -this.imaginaryPart);
         }
+
+        public static GaussianInteger operator +(GaussianInteger z, GaussianInteger w)
+        {
+            return new GaussianInteger(z.realPart + w.realPart, z.imaginaryPart + w.imaginaryPart);
+        }
+
+        public static GaussianInteger operator -(GaussianInteger z, GaussianInteger w)
+        {
+            return new GaussianInteger(z.realPart - w.realPart, z.imaginaryPart - w.imaginaryPart);
+        }
+
+        public static GaussianInteger operator *(GaussianInteger z, GaussianInteger w)
+        {
+            return new GaussianInteger(z.realPart * w.realPart - z.imaginaryPart * w.imaginaryPart, z.realPart * w.imaginaryPart + z.imaginaryPart * w.realPart);
+        }
     }
 }

@@ -171,4 +171,32 @@ namespace TDDBC8th.TestGaussianInteger
             Assert.AreEqual(new GaussianInteger(1, 1), new GaussianInteger(1, -1).GetConjugate());
         }
     }
+
+    [TestClass]
+    public class ガウス整数同士の演算
+    {
+        [TestMethod]
+        public void 実部1虚部1に実部1虚部1を加算すると実部2虚部2であること()
+        {
+            Assert.AreEqual(new GaussianInteger(2, 2), new GaussianInteger(1, 1) + new GaussianInteger(1, 1));
+        }
+
+        [TestMethod]
+        public void 実部2虚部2に実部1虚部1を減算すると実部1虚部1であること()
+        {
+            Assert.AreEqual(new GaussianInteger(1, 1), new GaussianInteger(2, 2) - new GaussianInteger(1, 1));
+        }
+
+        [TestMethod]
+        public void 実部1虚部2に実部3虚部4を乗算すると実部マイナス5虚部10であること()
+        {
+            Assert.AreEqual(new GaussianInteger(-5, 10), new GaussianInteger(1, 2) * new GaussianInteger(3, 4));
+        }
+
+        [TestMethod]
+        public void 実部マイナス1虚部マイナス2に実部マイナス3虚部マイナス4を乗算すると実部11虚部10であること()
+        {
+            Assert.AreEqual(new GaussianInteger(-5, 10), new GaussianInteger(-1, -2) * new GaussianInteger(-3, -4));
+        }
+    }
 }
